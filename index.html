@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>임영인 (20253535) - 소프트웨어융합대학</title>
+  <meta name="description" content="임영인(20253535) - 소프트웨어융합대학, Godot 학습 중, 목표: 나만의 게임을 만들어 전세계에 알리기" />
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#9aa7bb;
+      --accent:#4f9bf6;
+      --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.02);
+      --radius:14px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background: linear-gradient(180deg,#071025 0%, #07162b 60%);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:32px;
+    }
+    .container{
+      width:100%;
+      max-width:960px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:18px;
+      box-shadow: 0 10px 30px rgba(2,6,23,0.7);
+      padding:28px;
+      display:grid;
+      grid-template-columns: 280px 1fr;
+      gap:24px;
+      align-items:start;
+    }
+
+    /* left card */
+    .profile-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), var(--glass));
+      padding:20px;
+      border-radius:12px;
+      border: 1px solid rgba(255,255,255,0.03);
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    .avatar{
+      width:100%;
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .avatar .photo{
+      width:76px;height:76px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#7bd1ff);
+      display:flex;align-items:center;justify-content:center;font-weight:700;color:#072033;font-size:22px;
+      box-shadow: 0 6px 18px rgba(79,155,246,0.12), inset 0 -6px 16px rgba(0,0,0,0.12);
+    }
+    .avatar .info{
+      line-height:1.05;
+    }
+    .name{font-weight:700;font-size:18px}
+    .sub{color:var(--muted);font-size:13px;margin-top:4px}
+
+    .meta{
+      display:flex;flex-direction:column;gap:10px;margin-top:6px;font-size:13px;color:var(--muted)
+    }
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:999px;background:var(--glass-2);font-weight:600;font-size:13px;color:var(--accent);
+      border:1px solid rgba(79,155,246,0.12);
+    }
+
+    /* right content */
+    .content{
+      padding:20px;
+      border-radius:12px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    h1{margin:0;font-size:20px}
+    p.lead{color:var(--muted);margin-top:8px;margin-bottom:18px}
+
+    .section{margin-bottom:18px}
+    .section h3{margin:0 0 8px 0;font-size:15px}
+    ul.skills{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+    ul.skills li{background:var(--glass);padding:8px 10px;border-radius:10px;color:var(--muted);font-weight:600;font-size:13px;border:1px solid rgba(255,255,255,0.02)}
+
+    .goal{
+      background: linear-gradient(90deg, rgba(79,155,246,0.08), rgba(123,209,255,0.03));
+      padding:12px;border-radius:10px;border:1px solid rgba(79,155,246,0.08);color:#dff2ff;font-weight:600;
+    }
+
+    .actions{display:flex;gap:10px;margin-top:12px}
+    a.btn{
+      text-decoration:none;padding:10px 14px;border-radius:10px;font-weight:700;font-size:14px;
+      display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,0.04);
+      background: linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,255,255,0.006));
+      color:#eaf6ff;
+    }
+    a.ghost{background:transparent;border:1px dashed rgba(255,255,255,0.04);color:var(--muted);font-weight:600}
+
+    footer{margin-top:18px;color:var(--muted);font-size:13px}
+
+    /* responsive */
+    @media (max-width:880px){
+      .container{grid-template-columns:1fr;padding:18px}
+      .avatar .photo{width:64px;height:64px}
+    }
+  </style>
+</head>
+<body>
+  <main class="container" role="main">
+    <!-- LEFT: 프로필 카드 -->
+    <aside class="profile-card" aria-label="프로필 카드">
+      <div class="avatar">
+        <div class="photo" aria-hidden="true">임영</div>
+        <div class="info">
+          <div class="name">임영인 <span style="font-weight:600;color:var(--muted)">· 20253535</span></div>
+          <div class="sub">소프트웨어융합대학 · 게임 개발 지향</div>
+        </div>
+      </div>
+
+      <div class="meta">
+        <div class="badge">🎮 관심: 게임 개발</div>
+        <div>현재 학습: <strong>Godot (고도)</strong>, <strong>Python</strong></div>
+        <div>목표: 나만의 게임을 만들어 전세계에 알리기</div>
+      </div>
+
+      <div style="margin-top:6px;font-size:13px;color:var(--muted)">
+        연락: <br />
+        <!-- 이메일/깃허브를 넣으려면 아래를 수정하세요 -->
+        Email: <span style="color:#bcd9ff;font-weight:600">your-email@example.com</span><br />
+        GitHub: <a href="https://github.com/your-username" style="color:#bcd9ff;text-decoration:none;font-weight:700">github.com/your-username</a>
+      </div>
+    </aside>
+
+    <!-- RIGHT: 상세 내용 -->
+    <section class="content" aria-label="소개 내용">
+      <h1>안녕하세요! 임영인입니다.</h1>
+      <p class="lead">소프트웨어융합대학에서 Godot 게임 엔진을 배우고 있으며, Python을 이미 학습했습니다. 게임 개발을 통해 나만의 창작물을 전 세계에 선보이는 것을 목표로 하고 있습니다.</p>
+
+      <div class="section">
+        <h3>🧑‍💻 현재 배우는 기술</h3>
+        <ul class="skills" aria-hidden="false">
+          <li>Godot Engine</li>
+          <li>Python</li>
+          <li>HTML / CSS / JavaScript</li>
+          <li>Git / GitHub</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>🛠 강점 & 관심 분야</h3>
+        <ul style="margin:0 0 0 18px;color:var(--muted)">
+          <li>게임 개발 전반(기획 · 개발 · 배포)에 높은 관심</li>
+          <li>인디 게임 제작, UI/UX, 캐릭터·레벨 디자인</li>
+          <li>프로젝트로 포트폴리오를 채워 취업 준비</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>🎯 목표</h3>
+        <div class="goal">나만의 게임을 직접 제작하고 전 세계 플레이어에게 알리는 것 — 기획에서 출시까지 스스로 해내는 개발자가 되는 것이 목표입니다.</div>
+      </div>
+
+      <div class="section">
+        <h3>📂 포트폴리오 예시 (추가 예정)</h3>
+        <p style="color:var(--muted);margin:8px 0 0 0">게임 프로토타입, GitHub 레포지토리 링크, 스크린샷/동영상 등을 올리면 좋습니다. (프로젝트별로 간단한 설명과 사용 기술 표기)</p>
+      </div>
+
+      <div class="actions" role="navigation" aria-label="작업">
+        <a class="btn" href="https://github.com/your-username" target="_blank" rel="noopener noreferrer">깃허브 바로가기 ↗</a>
+        <a class="btn ghost" href="mailto:your-email@example.com">이메일 보내기</a>
+      </div>
+
+      <footer>
+        이 페이지는 GitHub Pages용으로 제작되었습니다. 레이아웃이나 색상, 배지를 원하면 알려줘 — 바로 수정해줄게.
+      </footer>
+    </section>
+  </main>
+</body>
+</html>
